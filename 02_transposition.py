@@ -1,3 +1,5 @@
+import os
+
 alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
 
@@ -58,18 +60,18 @@ if __name__ == "__main__":
     key = "SECRET"
 
     encrypted_text = transposition_col_encrypt(text, key)
-    print("Зашифрований текст:", encrypted_text, '\n')
+    print(f"{os.path.basename(__file__)} Зашифрований текст:", encrypted_text, '\n')
 
     decrypted_text = transposition_col_decrypt(encrypted_text, key)
-    print("Розшифрований текст:", decrypted_text, '\n')
+    print(f"{os.path.basename(__file__)} Розшифрований текст:", decrypted_text, '\n')
 
     key2 = "CRYPTO"
 
     encrypted_double = transposition_row_encrypt(encrypted_text, key2)
-    print("Подвійно зашифрований текст:", encrypted_double, '\n')
+    print(f"{os.path.basename(__file__)} Подвійно зашифрований текст:", encrypted_double, '\n')
 
     decrypted_double = transposition_row_decrypt(encrypted_double, key2)
-    print("Розшифрований текст перший рівень:", decrypted_double, '\n')
+    print(f"{os.path.basename(__file__)} Розшифрований текст перший рівень:", decrypted_double, '\n')
 
     decrypted_text = transposition_col_decrypt(decrypted_double, key)
-    print("Розшифрований текст другий рівень:", decrypted_text, '\n')
+    print(f"{os.path.basename(__file__)} Розшифрований текст другий рівень:", decrypted_text, '\n')

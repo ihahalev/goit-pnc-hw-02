@@ -1,3 +1,4 @@
+import os
 vigenere = __import__('01_vigenere')
 
 """За два століття до нашої ери, грецький літератор та історик Полібій створив так званий полібіанський квадрат розмірами 5 на 5,
@@ -78,21 +79,21 @@ if __name__ == "__main__":
     key = "MATRIX"
 
     encrypted_text = table_encrypt(text, key)
-    print("Зашифрований текст:", encrypted_text, '\n')
+    print(f"{os.path.basename(__file__)} Зашифрований текст:", encrypted_text, '\n')
 
     decrypted_text = table_decrypt(encrypted_text, key)
-    print("Розшифрований текст:", decrypted_text, '\n')
+    print(f"{os.path.basename(__file__)} Розшифрований текст:", decrypted_text, '\n')
 
     key2 = "CRYPTO"
 
     encrypted_vigenere = vigenere.vigenere_encrypt(text, key)
-    print("Зашифрований текст Віженером:", encrypted_vigenere, '\n')
+    print(f"{os.path.basename(__file__)} Зашифрований текст Віженером:", encrypted_vigenere, '\n')
 
     encrypted_double = table_encrypt(encrypted_vigenere, key2)
-    print("Подвійно зашифрований текст:", encrypted_double, '\n')
+    print(f"{os.path.basename(__file__)} Подвійно зашифрований текст:", encrypted_double, '\n')
 
     decrypted_double = table_decrypt(encrypted_double, key2)
-    print("Розшифрований текст перший рівень:", decrypted_double, '\n')
+    print(f"{os.path.basename(__file__)} Розшифрований текст перший рівень:", decrypted_double, '\n')
 
     decrypted_text =  vigenere.vigenere_decrypt(decrypted_double, key)
-    print("Розшифрований текст другий рівень:", decrypted_text, '\n')
+    print(f"{os.path.basename(__file__)} Розшифрований текст другий рівень:", decrypted_text, '\n')

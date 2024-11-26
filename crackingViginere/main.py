@@ -206,7 +206,7 @@ def hackVigenere(ciphertext):
         print('Kasiski examination results say the most likely key lengths are: ' + keyLengthStr + '\n')
         input("> ")
     hackedMessage = None
-    for keyLength in allLikelyKeyLengths:
+    for keyLength in [12]:
         if not SILENT_MODE:
             print('Attempting hack with key length %s (%s possible keys)...'
               % (keyLength, NUM_MOST_FREQ_LETTERS ** keyLength))

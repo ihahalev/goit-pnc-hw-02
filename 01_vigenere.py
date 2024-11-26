@@ -1,6 +1,4 @@
-import string
-friedman = __import__('01_friedman')
-kasiski = __import__('01_kasiski')
+import os
 alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 alphabet_lower = "abcdefghijklmnopqrstuvwxyz"
 
@@ -58,17 +56,7 @@ if __name__ == "__main__":
     key = "CRYPTOGRAPHY"
 
     encrypted_text = vigenere_encrypt(text, key)
-    print("Зашифрований текст:", encrypted_text)
+    print(f"{os.path.basename(__file__)} Зашифрований текст:", encrypted_text)
 
     decrypted_text = vigenere_decrypt(encrypted_text, key)
-    print("Розшифрований текст:", decrypted_text)
-
-    no_punctuations = encrypted_text.translate(str.maketrans("", "", string.punctuation))
-
-    ic, estimated_key_length = friedman.friedman_test(no_punctuations)
-    print("\nТест Фрідмана (Рівень 2):")
-    print(f"Індекс збігу: {ic}")
-    print(f"Приблизна довжина ключа: {estimated_key_length:.2f}")
-
-    # print("\nТест Казіскі (Рівень 2):")
-    # kasiski.main(no_punctuations)
+    print(f"{os.path.basename(__file__)} Розшифрований текст:", decrypted_text)
